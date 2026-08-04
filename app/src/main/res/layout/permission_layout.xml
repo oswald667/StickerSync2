@@ -23,9 +23,8 @@
         android:id="@+id/permissionExplanation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="""
         android:textSize="14sp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="16dp"
-        android:text="This app will only access your stickers to duplicate them between apps. No personal data is stored.""" />
+        android:text="This app will only access your stickers to duplicate them between apps. No personal data is stored." />
 </LinearLayout>
