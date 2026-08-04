@@ -53,22 +53,18 @@
 
     <!-- Text Appearances -->
     <style name="TextAppearance.StickerSync.Headline" parent="TextAppearance.Material3.HeadlineMedium">
-        <item name="fontFamily">@font/inter_semi_bold</item>
         <item name="android:textColor">@color/md_theme_onSurface</item>
     </style>
 
     <style name="TextAppearance.StickerSync.Title" parent="TextAppearance.Material3.TitleLarge">
-        <item name="fontFamily">@font/inter_medium</item>
         <item name="android:textColor">@color/md_theme_onSurface</item>
     </style>
 
     <style name="TextAppearance.StickerSync.Body" parent="TextAppearance.Material3.BodyLarge">
-        <item name="fontFamily">@font/inter_regular</item>
         <item name="android:textColor">@color/md_theme_onSurface</item>
     </style>
 
     <style name="TextAppearance.StickerSync.Caption" parent="TextAppearance.Material3.LabelSmall">
-        <item name="fontFamily">@font/inter_regular</item>
         <item name="android:textColor">@color/md_theme_onSurfaceVariant</item>
     </style>
 
@@ -103,12 +99,10 @@
     </style>
 
     <!-- Card Style for sticker items -->
-    <style name="Widget.StickerSync.Card.Sticker" parent="Widget.Material3.CardView.Elevated">
+    <style name="Widget.StickerSync.Card.Sticker" parent="Widget.Material3.CardView.Filled">
         <item name="cardBackgroundColor">@color/sticker_card_bg</item>
         <item name="cardCornerRadius">@dimen/sticker_corner_radius</item>
         <item name="cardElevation">2dp</item>
-        <item name="strokeColor">@color/sticker_border</item>
-        <item name="strokeWidth">@dimen/stroke_width_thin</item>
     </style>
 
     <!-- Divider -->
@@ -119,7 +113,7 @@
     </style>
 
     <!-- AppBar / Toolbar -->
-    <style name="Widget.StickerSync.Toolbar" parent="Widget.Material3.Toolbar.Primary">
+    <style name="Widget.StickerSync.Toolbar" parent="Widget.Material3.Toolbar">
         <item name="titleTextAppearance">@style/TextAppearance.StickerSync.Title</item>
     </style>
 </resources>

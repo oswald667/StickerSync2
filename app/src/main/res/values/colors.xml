@@ -32,7 +32,7 @@
 
     <!-- App-specific semantic colors -->
     <color name="sticker_grid_bg">@color/md_theme_surface</color>
-    <color name="sticker_card_bg">@color/md_theme_surfaceContainerHigh</color>
+    <color name="sticker_card_bg">@color/md_theme_surfaceVariant</color>
     <color name="sticker_border">@color/md_theme_outlineVariant</color>
     <color name="accent_whatsapp">#25D366</color>
     <color name="accent_snapchat">#FFFC00</color>
