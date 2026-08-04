@@ -1,0 +1,51 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!-- Spacing units (multiples of 4dp for Material Design) -->
+    <dimen name="spacing_xxxs">2dp</dimen>
+    <dimen name="spacing_xxs">4dp</dimen>
+    <dimen name="spacing_xs">8dp</dimen>
+    <dimen name="spacing_sm">12dp</dimen>
+    <dimen name="spacing_md">16dp</dimen>
+    <dimen name="spacing_lg">20dp</dimen>
+    <dimen name="spacing_xl">24dp</dimen>
+    <dimen name="spacing_xxl">28dp</dimen>
+    <dimen name="spacing_xxxl">32dp</dimen>
+
+    <!-- Corner radius -->
+    <dimen name="corner_radius_sm">4dp</dimen>
+    <dimen name="corner_radius_md">8dp</dimen>
+    <dimen name="corner_radius_lg">12dp</dimen>
+    <dimen name="corner_radius_pill">16dp</dimen>
+    <dimen name="corner_radius_full">999dp</dimen>
+
+    <!-- Stroke widths -->
+    <dimen name="stroke_width_thin">1dp</dimen>
+    <dimen name="stroke_width_normal">2dp</dimen>
+    <dimen name="stroke_width_thick">3dp</dimen>
+
+    <!-- Icon sizes -->
+    <dimen name="icon_size_xs">16dp</dimen>
+    <dimen name="icon_size_sm">20dp</dimen
+    <dimen name="icon_size_md">24dp</dimen>
+    <dimen name="icon_size_lg">28dp</dimen>
+    <dimen name="icon_size_xl">32dp</dimen>
+
+    <!-- Text sizes -->
+    <dimen name="text_size_xs">10sp</dimen>
+    <dimen name="text_size_sm">12sp</dimen>
+    <dimen name="text_size_base">14sp</dimen>
+    <dimen name="text_size_md">16sp</dimen>
+    <dimen name="text_size_lg">18sp</dimen>
+    <dimen name="text_size_xl">20sp</dimen>
+    <dimen name="text_size_xxl">24sp</dimen>
+    <dimen name="text_size_xxxl">28sp</dimen>
+
+    <!-- Sticker grid specific -->
+    <dimen name="sticker_item_size">100dp</dimen>
+    <dimen name="sticker_item_spacing">8dp</dimen>
+    <dimen name="sticker_grid_padding">16dp</dimen>
+    <dimen name="sticker_corner_radius">8dp</dimen>
+</resources>

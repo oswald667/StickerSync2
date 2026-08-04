@@ -1,0 +1,40 @@
+# .gitignore for StickerSync2 project
+
+# Build outputs
+app/build/
+app/out/
+app/*.apk
+app/*.aab
+
+# Generated files
+*.class
+*.dex
+*.jar
+*.so
+
+# Local configuration
+local.properties
+# Release keys (keep this secret!)
+keystore.properties
+key-store.jks
+release-keys.zip
+
+# IDE files
+.idea/
+*.iml
+*.ipr
+*.iws
+*.classpath
+*.project
+*.settings
+
+# OS files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Environments secrets
+.env
+.secret
+.keys
