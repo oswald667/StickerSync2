@@ -65,3 +65,4 @@
         android:backgroundTint="@color/md_theme_primary"
         android:textColor="@color/md_theme_onPrimary"
         android:padding="@dimen/spacing_md"/>
+</LinearLayout>
