@@ -12,6 +12,8 @@ app/*.aab
 *.jar
 *.so
 
+!gradle/wrapper/gradle-wrapper.jar
+
 # Local configuration
 local.properties
 # Release keys (keep this secret!)

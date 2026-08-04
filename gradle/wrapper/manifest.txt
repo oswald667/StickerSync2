@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Main-Class: org.gradle.wrapper.GradleWrapperMain
+Implementation-Title: Gradle Wrapper
+Implementation-Version: 8.5
+Implementation-Vendor-Id: org.gradle
+Specification-Title: Gradle Wrapper
+Specification-Version: 1.0
+Specification-Vendor: org.gradle
+
