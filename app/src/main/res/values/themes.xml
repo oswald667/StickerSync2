@@ -106,7 +106,7 @@
     </style>
 
     <!-- Divider -->
-    <style name="Widget.StickerSync.Divider" parent="Widget.Material3.Divider">
+    <style name="Widget.StickerSync.Divider" parent="Widget.Material3.MaterialDivider">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">1dp</item>
         <item name="color">@color/md_theme_outlineVariant</item>
