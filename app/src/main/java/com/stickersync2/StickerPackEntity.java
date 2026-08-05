@@ -1,11 +1,13 @@
 package com.stickersync2;
 
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "sticker_packs")
 public class StickerPackEntity {
     @PrimaryKey
+    @NonNull
     private String id;
     private String name;
     private String sourceApp;

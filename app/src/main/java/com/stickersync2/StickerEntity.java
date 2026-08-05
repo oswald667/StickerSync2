@@ -2,6 +2,7 @@ package com.stickersync2;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -9,6 +10,7 @@ import androidx.room.PrimaryKey;
 public class StickerEntity implements Parcelable {
 
     @PrimaryKey
+    @NonNull
     private String id;
     private String sourceApp;
     private String filePath;
