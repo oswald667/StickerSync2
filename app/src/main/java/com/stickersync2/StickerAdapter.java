@@ -4,10 +4,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,9 +26,9 @@ public class StickerAdapter extends RecyclerView.Adapter<StickerAdapter.StickerV
         this.clickListener = listener;
     }
 
-    public void setStickers(List<StickerEntity> stickers) {
+    public void setStickers(List<StickerEntity> newStickers) {
         this.stickers.clear();
-        this.stickers.addAll(stickers);
+        this.stickers.addAll(newStickers);
         notifyDataSetChanged();
     }
 
@@ -41,14 +42,11 @@ public class StickerAdapter extends RecyclerView.Adapter<StickerAdapter.StickerV
 
     @Override
     public void onBindViewHolder(@NonNull StickerViewHolder holder, int position) {
-        StickerEntity sticker = stickers.get(position);
-        holder.bind(sticker);
+        holder.bind(stickers.get(position));
     }
 
     @Override
-    public int getItemCount() {
-        return stickers.size();
-    }
+    public int getItemCount() { return stickers.size(); }
 
     class StickerViewHolder extends RecyclerView.ViewHolder {
         private final ImageView stickerImage;
@@ -66,15 +64,13 @@ public class StickerAdapter extends RecyclerView.Adapter<StickerAdapter.StickerV
 
         public void bind(StickerEntity sticker) {
             File file = new File(sticker.getFilePath());
-            if (file.exists()) {
-                Glide.with(itemView.getContext())
-                        .load(file)
-                        .placeholder(android.R.drawable.ic_menu_gallery)
-                        .error(android.R.drawable.ic_delete)
-                        .into(stickerImage);
-            } else {
-                stickerImage.setImageResource(android.R.drawable.ic_delete);
-            }
+            Glide.with(itemView.getContext())
+                    .load(file.exists() ? file : null)
+                    .apply(new RequestOptions()
+                            .placeholder(android.R.drawable.ic_menu_gallery)
+                            .error(android.R.drawable.ic_delete)
+                            .transform(new RoundedCorners(24)))
+                    .into(stickerImage);
         }
     }
 }

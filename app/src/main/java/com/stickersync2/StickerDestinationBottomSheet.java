@@ -11,22 +11,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.DialogFragment;
-
-import com.stickersync2.StickerEntity;
-import com.stickersync2.ErrorHandlingService;
-import com.stickersync2.StickerDuplicationService;
-
-import java.util.ArrayList;
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
+import java.util.Arrays;
 import java.util.List;
 
-public class StickerDestinationBottomSheet extends DialogFragment {
+public class StickerDestinationBottomSheet extends BottomSheetDialogFragment {
 
     private static final String ARG_STICKER = "sticker";
     private StickerEntity sticker;
-    private List<String> destinationApps = new ArrayList<>();
-    private StickerDuplicationService duplicationService;
-    private Context context;
 
     public static StickerDestinationBottomSheet newInstance(StickerEntity sticker) {
         StickerDestinationBottomSheet fragment = new StickerDestinationBottomSheet();
@@ -46,61 +38,61 @@ public class StickerDestinationBottomSheet extends DialogFragment {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
-                            @Nullable ViewGroup container,
-                            @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.bottom_sheet_destination, container, false);
+                             @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.bottom_sheet_destination, container, false);
+    }
 
-        context = requireContext();
-        duplicationService = new StickerDuplicationService(context);
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
-        // Setup UI
-        TextView title = view.findViewById(R.id.title);
-        title.setText("Copier ce sticker vers...");
+        Context ctx = requireContext();
+        StickerDuplicationService duplicationService = new StickerDuplicationService(ctx);
 
-        LinearLayout containerView = view.findViewById(R.id.destination_container);
-        destinationApps = getAvailableDestinationApps();
+        LinearLayout destinationContainer = view.findViewById(R.id.destination_container);
+        Button closeButton = view.findViewById(R.id.closeButton);
 
-        // Populate destination options
-        for (String app : destinationApps) {
-            View option = LayoutInflater.from(context).inflate(R.layout.destination_option, containerView, false);
-            TextView appName = option.findViewById(R.id.appName);
-            Button applyButton = option.findViewById(R.id.applyButton);
+        List<String> apps = Arrays.asList("WhatsApp", "TikTok", "Snapchat", "Facebook");
 
+        // Remove source app from destinations
+        String sourceApp = sticker != null ? sticker.getSourceApp() : "";
+        for (String app : apps) {
+            if (app.equalsIgnoreCase(sourceApp)) continue;
+
+            LinearLayout row = new LinearLayout(ctx);
+            row.setOrientation(LinearLayout.HORIZONTAL);
+            LinearLayout.LayoutParams rowParams = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+            );
+            rowParams.setMargins(0, 0, 0, 24);
+            row.setLayoutParams(rowParams);
+            row.setGravity(android.view.Gravity.CENTER_VERTICAL);
+
+            TextView appName = new TextView(ctx);
             appName.setText(app);
+            appName.setTextSize(16f);
+            LinearLayout.LayoutParams tvParams = new LinearLayout.LayoutParams(0,
+                    LinearLayout.LayoutParams.WRAP_CONTENT, 1f);
+            appName.setLayoutParams(tvParams);
 
-            applyButton.setOnClickListener(v -> {
-                if (duplicateSticker(sticker, app)) {
-                    Toast.makeText(context, "Sticker copié vers " + app, Toast.LENGTH_SHORT).show();
+            Button copyBtn = new Button(ctx);
+            copyBtn.setText("Copier");
+            copyBtn.setOnClickListener(v -> {
+                if (sticker != null && duplicationService.duplicateSticker(sticker, app)) {
+                    Toast.makeText(ctx, "Sticker copié vers " + app + " ✓", Toast.LENGTH_SHORT).show();
                     dismiss();
                 } else {
-                    Toast.makeText(context, "Échec de la copie", Toast.LENGTH_LONG).show();
+                    Toast.makeText(ctx, "Échec — vérifiez que " + app + " est installé", Toast.LENGTH_LONG).show();
                 }
             });
 
-            // Add to container
-            containerView.addView(option);
+            row.addView(appName);
+            row.addView(copyBtn);
+            destinationContainer.addView(row);
         }
 
-        return view;
-    }
-
-    private List<String> getAvailableDestinationApps() {
-        // This would be populated dynamically based on app capabilities
-        List<String> apps = new ArrayList<>();
-        apps.add("WhatsApp");
-        apps.add("TikTok");
-        apps.add("Snapchat");
-        apps.add("Facebook");
-        return apps;
-    }
-
-    private boolean duplicateSticker(StickerEntity sticker, String destinationApp) {
-        try {
-            return duplicationService.duplicateSticker(sticker, destinationApp);
-        } catch (Exception e) {
-            ErrorHandlingService errorHandlingService = new ErrorHandlingService();
-            errorHandlingService.logError("Duplication failed", e, ErrorHandlingService.ErrorCode.FORMAT_NOT_SUPPORTED);
-            return false;
-        }
+        closeButton.setOnClickListener(v -> dismiss());
     }
 }

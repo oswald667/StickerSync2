@@ -5,8 +5,6 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import java.util.List;
-import com.stickersync2.StickerEntity;
-import com.stickersync2.StickerRepository;
 
 public class OthersStickersViewModel extends AndroidViewModel {
 
@@ -16,15 +14,12 @@ public class OthersStickersViewModel extends AndroidViewModel {
     public OthersStickersViewModel(@NonNull Application application) {
         super(application);
         repository = new StickerRepository(application);
-        stickers = repository.getStickersBySourceApp("Autres");
+        stickers = repository.getStickersBySourceApp("Other");
     }
 
-    public LiveData<List<StickerEntity>> getStickers() {
-        return stickers;
-    }
+    public LiveData<List<StickerEntity>> getStickers() { return stickers; }
 
     public void refreshStickers() {
-        // Trigger refresh
-        repository.getStickersBySourceApp("Autres");
+        repository.scanStickersForApp(getApplication(), "Other");
     }
 }

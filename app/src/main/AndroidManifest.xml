@@ -1,25 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.stickersync2"
-    android:versionCode="1"
-    android:versionName="1.0">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
-    <!-- Android 11+ scoped storage workaround -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="29" />
     <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="StickerSync"
-        android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+        android:theme="@style/Theme.StickerSync2"
+        android:requestLegacyExternalStorage="true">
 
-        <!-- Permission Screen -->
         <activity
             android:name=".PermissionActivity"
-            android:label="Permissions Required"
+            android:label="StickerSync"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,10 +23,10 @@
             </intent-filter>
         </activity>
 
-        <!-- Main Activity (will be launched after permissions) -->
         <activity
             android:name=".MainActivity"
-            android:label="StickerSync">
-        </activity>
+            android:label="StickerSync"
+            android:exported="false" />
+
     </application>
 </manifest>

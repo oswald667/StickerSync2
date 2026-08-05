@@ -3,44 +3,96 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="8dp">
+    android:background="@color/md_theme_background">
 
+    <!-- Section header -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:layout_marginBottom="8dp">
+        android:paddingHorizontal="20dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="12dp">
 
         <TextView
             android:id="@+id/tvSectionTitle"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="Stickers"
-            android:textSize="18sp"
+            android:textSize="22sp"
             android:textStyle="bold"
-            android:layout_marginEnd="16dp"/>
+            android:textColor="@color/md_theme_onSurface"/>
 
+        <!-- Count badge -->
         <TextView
             android:id="@+id/tvStickerCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0"
-            android:textSize="16sp"
-            android:layout_marginEnd="16dp"/>
+            android:textSize="13sp"
+            android:textColor="@color/md_theme_onSecondaryContainer"
+            android:background="@drawable/count_badge_bg"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="4dp"
+            android:layout_marginEnd="12dp"/>
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnRefresh"
+            style="@style/Widget.Material3.Button.TonalButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Rafraîchir"
-            android:layout_gravity="end"/>
+            android:text="↻ Scan"
+            android:textSize="13sp"
+            app:cornerRadius="20dp"/>
+
+    </LinearLayout>
+
+    <!-- Empty state -->
+    <LinearLayout
+        android:id="@+id/emptyState"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🗂️"
+            android:textSize="56sp"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Aucun sticker trouvé"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/md_theme_onSurface"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Appuyez sur ↻ Scan pour chercher\nvos stickers sur cet appareil."
+            android:textSize="14sp"
+            android:textColor="@color/md_theme_onSurfaceVariant"
+            android:gravity="center"
+            android:lineSpacingMultiplier="1.4"/>
 
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewStickers"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingHorizontal="12dp"
+        android:paddingBottom="16dp"
+        android:clipToPadding="false"/>
 
 </LinearLayout>

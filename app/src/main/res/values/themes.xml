@@ -1,119 +1,23 @@
 <resources>
-    <!-- Base application theme using Material Design 3 -->
     <style name="Theme.StickerSync2" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Primary brand color -->
         <item name="colorPrimary">@color/md_theme_primary</item>
         <item name="colorPrimaryVariant">@color/md_theme_primaryContainer</item>
         <item name="colorOnPrimary">@color/md_theme_onPrimary</item>
-        <!-- Secondary brand color -->
         <item name="colorSecondary">@color/md_theme_secondary</item>
-        <item name="colorSecondaryVariant">@color/md_theme_secondaryContainer</item>
         <item name="colorOnSecondary">@color/md_theme_onSecondary</item>
-        <!-- Tertiary brand color -->
-        <item name="colorTertiary">@color/md_theme_tertiary</item>
-        <item name="colorTertiaryContainer">@color/md_theme_tertiaryContainer</item>
-        <item name="colorOnTertiary">@color/md_theme_onTertiary</item>
-        <!-- Error -->
         <item name="colorError">@color/md_theme_error</item>
-        <item name="colorErrorContainer">@color/md_theme_errorContainer</item>
-        <item name="colorOnError">@color/md_theme_onError</item>
-        <!-- Surface & Background -->
         <item name="android:colorBackground">@color/md_theme_background</item>
         <item name="colorSurface">@color/md_theme_surface</item>
         <item name="colorOnSurface">@color/md_theme_onSurface</item>
-        <!-- Status bar & Navigation bar -->
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:navigationBarColor">@android:color/transparent</item>
         <item name="android:windowLightStatusBar">true</item>
-        <item name="android:windowLightNavigationBar">true</item>
-        <!-- Window -->
         <item name="android:windowBackground">@color/md_theme_background</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-        <!-- Shape appearance -->
-        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.StickerSync.SmallComponent</item>
-        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.StickerSync.MediumComponent</item>
-        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.StickerSync.LargeComponent</item>
     </style>
 
-    <!-- Shape Appearances -->
-    <style name="ShapeAppearance.StickerSync.SmallComponent" parent="ShapeAppearance.Material3.SmallComponent">
-        <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">@dimen/corner_radius_md</item>
-    </style>
-
-    <style name="ShapeAppearance.StickerSync.MediumComponent" parent="ShapeAppearance.Material3.MediumComponent">
-        <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">@dimen/corner_radius_lg</item>
-    </style>
-
-    <style name="ShapeAppearance.StickerSync.LargeComponent" parent="ShapeAppearance.Material3.LargeComponent">
-        <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">@dimen/corner_radius_lg</item>
-    </style>
-
-    <!-- Text Appearances -->
-    <style name="TextAppearance.StickerSync.Headline" parent="TextAppearance.Material3.HeadlineMedium">
-        <item name="android:textColor">@color/md_theme_onSurface</item>
-    </style>
-
-    <style name="TextAppearance.StickerSync.Title" parent="TextAppearance.Material3.TitleLarge">
-        <item name="android:textColor">@color/md_theme_onSurface</item>
-    </style>
-
-    <style name="TextAppearance.StickerSync.Body" parent="TextAppearance.Material3.BodyLarge">
-        <item name="android:textColor">@color/md_theme_onSurface</item>
-    </style>
-
-    <style name="TextAppearance.StickerSync.Caption" parent="TextAppearance.Material3.LabelSmall">
-        <item name="android:textColor">@color/md_theme_onSurfaceVariant</item>
-    </style>
-
-    <!-- Button Styles -->
-    <style name="Widget.StickerSync.Button.Primary" parent="Widget.Material3.Button">
-        <item name="backgroundTint">@color/md_theme_primary</item>
-        <item name="android:textColor">@color/md_theme_onPrimary</item>
-        <item name="cornerRadius">@dimen/corner_radius_pill</item>
-        <item name="android:paddingHorizontal">@dimen/spacing_xl</item>
-        <item name="android:paddingVertical">@dimen/spacing_md</item>
-    </style>
-
-    <style name="Widget.StickerSync.Button.Secondary" parent="Widget.Material3.Button.OutlinedButton">
-        <item name="strokeColor">@color/md_theme_primary</item>
-        <item name="android:textColor">@color/md_theme_primary</item>
-        <item name="cornerRadius">@dimen/corner_radius_pill</item>
-        <item name="android:paddingHorizontal">@dimen/spacing_xl</item>
-        <item name="android:paddingVertical">@dimen/spacing_md</item>
-    </style>
-
-    <style name="Widget.StickerSync.Button.Tonal" parent="Widget.Material3.Button.TonalButton">
-        <item name="backgroundTint">@color/md_theme_secondaryContainer</item>
-        <item name="android:textColor">@color/md_theme_onSecondaryContainer</item>
-        <item name="cornerRadius">@dimen/corner_radius_pill</item>
-    </style>
-
-    <!-- Chip Style for source app badges -->
-    <style name="Widget.StickerSync.Chip.SourceApp" parent="Widget.Material3.Chip.Filter">
-        <item name="chipBackgroundColor">@color/md_theme_secondaryContainer</item>
-        <item name="android:textColor">@color/md_theme_onSecondaryContainer</item>
-        <item name="chipCornerRadius">@dimen/corner_radius_pill</item>
-    </style>
-
-    <!-- Card Style for sticker items -->
-    <style name="Widget.StickerSync.Card.Sticker" parent="Widget.Material3.CardView.Filled">
-        <item name="cardBackgroundColor">@color/sticker_card_bg</item>
-        <item name="cardCornerRadius">@dimen/sticker_corner_radius</item>
-        <item name="cardElevation">2dp</item>
-    </style>
-
-    <!-- Divider -->
-    <style name="Widget.StickerSync.Divider" parent="Widget.Material3.MaterialDivider">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">1dp</item>
-        <item name="color">@color/md_theme_outlineVariant</item>
-    </style>
-
-    <!-- AppBar / Toolbar -->
-    <style name="Widget.StickerSync.Toolbar" parent="Widget.Material3.Toolbar">
-        <item name="titleTextAppearance">@style/TextAppearance.StickerSync.Title</item>
+    <style name="TabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
     </style>
 </resources>

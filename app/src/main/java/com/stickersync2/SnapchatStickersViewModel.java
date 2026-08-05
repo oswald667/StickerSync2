@@ -6,20 +6,20 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import java.util.List;
 
-public class WhatsAppStickersViewModel extends AndroidViewModel {
+public class SnapchatStickersViewModel extends AndroidViewModel {
 
     private final StickerRepository repository;
     private final LiveData<List<StickerEntity>> stickers;
 
-    public WhatsAppStickersViewModel(@NonNull Application application) {
+    public SnapchatStickersViewModel(@NonNull Application application) {
         super(application);
         repository = new StickerRepository(application);
-        stickers = repository.getStickersBySourceApp("WhatsApp");
+        stickers = repository.getStickersBySourceApp("Snapchat");
     }
 
     public LiveData<List<StickerEntity>> getStickers() { return stickers; }
 
     public void refreshStickers() {
-        repository.scanStickersForApp(getApplication(), "WhatsApp");
+        repository.scanStickersForApp(getApplication(), "Snapchat");
     }
 }

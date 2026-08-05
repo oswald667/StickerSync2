@@ -44,4 +44,7 @@
     <color name="success_green">#4CAF50</color>
     <color name="warning_amber">#FFC107</color>
     <color name="error_red">#F44336</color>
+    <!-- Permission screen BG -->
+    <color name="bg_gradient_start">#FFFBFE</color>
+    <color name="bg_gradient_start">#FFFBFE</color>
 </resources>
